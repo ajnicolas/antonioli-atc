@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # !/python 3.6.2
 # Created by @_ajnicolas
-import requests, json, crayons
+import requests, json, crayons, sys
 from bs4 import BeautifulSoup
 
 useragent =  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3124.4 Safari/537.36'
@@ -32,6 +32,9 @@ def atc():
 	print ("Logging in...")
 	log = session.post(loginUrl,headers=headers,data=logindata)
 	print ("Logged in\n")
+	if 'Email ou mot de passe invalide' in str(log.content):
+		print (crayons.red("check acc info to see everything correct"))
+		sys.exit()
 
 	r = session.get(url,headers=headers)
 	print(r.url)
@@ -43,7 +46,7 @@ def atc():
 
 	form = soup.find('div', {'class': 'product-variants'})
 	size = form.text
-	fix = size.replace("½",".5")
+	fix = size.replace(u"½",".5")
 
 	#sizes is a list btw
 	sizes = fix.split("\n")   
