@@ -19,7 +19,11 @@ if u don't have pip installed
   cd antonioli-atc-master
   ```
 2. Create virtual env
-
+  ```
+  virtualenv -p python3 --no-site-packages env
+  ```
+  
+3. activate virtual env
   Mac/Linux:
   ```
   source env/bin/activate
@@ -28,15 +32,18 @@ if u don't have pip installed
   ```
   env\Scripts\activate
   ```
-3. install pip requirements, paste in terminal
+4. install pip requirements, paste in terminal
 
   ```
   pip3 install -r requirements.txt
   ```
-4. run script as:
+5. run script as:
  
   ```
   python antonioli.py
   ```
-change url, put account info to sign in and shoe size
+## changing variables
+
+1. open the script in any text editor
+2. change the url, put in acc info to be able to save cart, and shoesize to cop
   
