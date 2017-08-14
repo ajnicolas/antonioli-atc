@@ -46,7 +46,7 @@ def atc():
 
 	form = soup.find('div', {'class': 'product-variants'})
 	size = form.text
-	fix = size.replace(u"½",".5")
+	fix = size.replace(u"½",u".5")
 
 	#sizes is a list btw
 	sizes = fix.split("\n")   
